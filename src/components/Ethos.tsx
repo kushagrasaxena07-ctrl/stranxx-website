@@ -1,5 +1,3 @@
-import founderImage from '../assets/images/regenerated_image_1787538427439.png';
-
 export function Ethos() {
   return (
     <section id="ethos" className="py-24 md:py-32 px-4 md:px-8 max-w-[1024px] mx-auto bg-obsidian">
@@ -79,15 +77,7 @@ export function Ethos() {
             </p>
           </div>
           
-          <div className="mt-12 flex items-center gap-4 bg-white p-4 rounded-[24px] border border-black/5 w-max pr-8 shadow-sm">
-            <div className="w-14 h-14 rounded-full overflow-hidden">
-               <img src={founderImage} alt="Kushagra Saxena" className="w-full h-full object-cover grayscale opacity-90" />
-            </div>
-            <div>
-              <div className="font-semibold text-[#1d1d1f] tracking-tight">Kushagra Saxena</div>
-              <div className="font-sans text-sm text-[#86868b]">Founder & Managing Partner</div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

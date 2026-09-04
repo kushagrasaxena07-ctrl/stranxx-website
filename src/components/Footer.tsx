@@ -44,7 +44,7 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-[#86868b] shrink-0" />
                 <span className="text-[#86868b] text-xs">
-                  +91 8410507727
+                  +918287252775
                 </span>
               </li>
               <li className="flex items-center gap-3">
