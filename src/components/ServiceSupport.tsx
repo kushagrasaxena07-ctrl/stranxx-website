@@ -39,7 +39,12 @@ export function ServiceSupport() {
       if (response.ok) {
         setIsSuccess(true);
       } else {
-        alert("There was a problem submitting your request.");
+        const data = await response.json();
+        if (data.errors && data.errors.length > 0) {
+          alert(data.errors.map((err: any) => err.message).join(", "));
+        } else {
+          alert("There was a problem submitting your request.");
+        }
       }
     } catch (error) {
       alert("There was a problem submitting your request.");
@@ -143,7 +148,7 @@ export function ServiceSupport() {
                     </div>
                     <div>
                       <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Email</label>
-                      <input type="email" name="Email" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Email Address" />
+                      <input type="email" name="email" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Email Address" />
                     </div>
                     <div>
                       <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Location</label>
