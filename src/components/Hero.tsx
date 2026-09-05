@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ArrowRight } from "lucide-react";
 import slide1 from "../assets/images/stranxx_bess_solar_1787500686947.jpg";
-import slide2 from "../assets/images/stranxx_green_future_1787500743386.jpg";
+import slide2 from "../assets/images/hero_slider_2.png";
 import slide3 from "../assets/images/regenerated_image_1788522284990.png";
 
 const slides = [

@@ -1,5 +1,5 @@
 import { Wrench, PhoneCall, CheckCircle, ArrowRight, X } from "lucide-react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export function ServiceSupport() {
   const [isModalOpen, setIsModalOpen] = useState(false);
