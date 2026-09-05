@@ -32,15 +32,6 @@ export function Hero() {
         <p className="font-sans text-xl md:text-2xl text-[#86868b] max-w-2xl leading-relaxed mb-10 font-medium">
           Uncompromising quality and high-stakes reliability. Engineered for continuous operation.
         </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-          <button className="bg-[#1d1d1f] text-white px-8 py-3 rounded-full font-medium text-[15px] hover:bg-[#1d1d1f]/90 transition-colors flex items-center gap-2">
-            Explore Systems
-          </button>
-          <Link to="/about-us" className="bg-transparent text-[#1d1d1f] px-8 py-3 rounded-full font-medium text-[15px] hover:bg-black/5 transition-colors flex items-center gap-2">
-            Learn more <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
       </div>
 
       <div className="relative w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] max-w-[1400px] mx-auto aspect-video md:aspect-[16/9] rounded-2xl md:rounded-[40px] overflow-hidden bg-white shadow-2xl mb-8 md:mb-12 mt-auto group cursor-pointer">
