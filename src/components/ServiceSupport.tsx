@@ -56,55 +56,55 @@ export function ServiceSupport() {
     <section id="services" className="py-24 md:py-32 px-4 md:px-8 max-w-[1024px] mx-auto text-center bg-obsidian">
       <div className="mb-16">
         <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight text-[#1d1d1f] mb-6">
-          Service & Support.
+          Support & Enquiry.
         </h2>
         <p className="font-sans text-xl text-[#86868b] max-w-2xl mx-auto font-medium">
-          Comprehensive maintenance and rapid response protocols to keep your infrastructure running flawlessly.
+          Expert support. Dependable performance. Lasting confidence
         </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
         <div className="bg-white p-10 rounded-[32px] border border-black/5 hover:border-black/10 transition-all duration-300 shadow-sm hover:shadow-md">
           <Wrench className="w-8 h-8 text-[#1d1d1f] mb-6" />
-          <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-4 tracking-tight">Preventative Maintenance</h3>
+          <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-4 tracking-tight">Complaint & Maintenance support</h3>
           <p className="text-[#86868b] mb-8 leading-relaxed">
-            Scheduled diagnostics and servicing to identify and resolve potential issues before they cause downtime.
+            Technical support and maintenance engineered to minimise downtime and maximise reliability.
           </p>
           <ul className="space-y-3 mb-10">
             <li className="flex items-center gap-3 text-sm text-[#86868b]">
-              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Maintenance Schedule and Solution
+              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Root cause analysis
             </li>
             <li className="flex items-center gap-3 text-sm text-[#86868b]">
-              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Product Testing
+              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Rapid deployment SLAs
             </li>
             <li className="flex items-center gap-3 text-sm text-[#86868b]">
-              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Compliance auditing
+              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Genuine Spare parts
             </li>
           </ul>
-          <button onClick={() => handleOpenModal("Maintenance")} className="font-medium text-[#1d1d1f] flex items-center gap-2 hover:gap-3 transition-all text-sm">
-            Schedule Maintenance <ArrowRight className="w-4 h-4" />
+          <button onClick={() => handleOpenModal("Service and Maintenance Support")} className="font-medium text-[#1d1d1f] flex items-center gap-2 hover:gap-3 transition-all text-sm">
+            Complaint & Maintenance support <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
         <div className="bg-white p-10 rounded-[32px] border border-black/5 hover:border-black/10 transition-all duration-300 shadow-sm hover:shadow-md">
           <PhoneCall className="w-8 h-8 text-[#1d1d1f] mb-6" />
-          <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-4 tracking-tight">Emergency Response</h3>
+          <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-4 tracking-tight">GET IN TOUCH</h3>
           <p className="text-[#86868b] mb-8 leading-relaxed">
-            24/7 rapid deployment teams ready to restore critical power infrastructure during unexpected failures.
+            Let's Power Your Next Project.
           </p>
           <ul className="space-y-3 mb-10">
             <li className="flex items-center gap-3 text-sm text-[#86868b]">
-              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Rapid deployment SLAs
+              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Project Consultation
             </li>
             <li className="flex items-center gap-3 text-sm text-[#86868b]">
-              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Genuine spare parts
+              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Engineered Solutions
             </li>
             <li className="flex items-center gap-3 text-sm text-[#86868b]">
-              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Root cause analysis
+              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Technical & commercial proposals
             </li>
           </ul>
-          <button onClick={() => handleOpenModal("Emergency Support")} className="font-medium text-[#1d1d1f] flex items-center gap-2 hover:gap-3 transition-all text-sm">
-            Contact Support <ArrowRight className="w-4 h-4" />
+          <button onClick={() => handleOpenModal("Complaint Support")} className="font-medium text-[#1d1d1f] flex items-center gap-2 hover:gap-3 transition-all text-sm">
+            Discuss your requirements <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </div>
@@ -143,7 +143,7 @@ export function ServiceSupport() {
                     </div>
                     <div>
                       <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Company</label>
-                      <input type="text" name="Company" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Company Name" />
+                      <input type="text" name="Company" className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Company Name (Optional)" />
                     </div>
                     <div>
                       <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Phone</label>
@@ -166,7 +166,19 @@ export function ServiceSupport() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Segment</label>
-                      <input type="text" name="Segment" readOnly value={selectedSegment} className="w-full bg-[#f5f5f7]/50 border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f]/70 focus:outline-none cursor-not-allowed" />
+                      <select 
+                        name="Segment" 
+                        value={selectedSegment}
+                        onChange={(e) => setSelectedSegment(e.target.value)}
+                        className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors appearance-none"
+                      >
+                        <option value="" disabled>Select a Segment</option>
+                        <option value="DG sets">DG sets</option>
+                        <option value="Electrical panels">Electrical panels</option>
+                        <option value="Servo Stabilisers">Servo Stabilisers</option>
+                        <option value="Solar Solutions">Solar Solutions</option>
+                        <option value="BESS(Battery Energy Storage System">BESS(Battery Energy Storage System)</option>
+                      </select>
                     </div>
                     <div>
                       <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Nature of Issue</label>
