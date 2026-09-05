@@ -26,12 +26,15 @@ export function ServiceSupport() {
     setIsSubmitting(true);
     
     const formData = new FormData(e.currentTarget);
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
     
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        body: formData,
+        body: json,
         headers: {
+          "Content-Type": "application/json",
           Accept: "application/json",
         },
       });
