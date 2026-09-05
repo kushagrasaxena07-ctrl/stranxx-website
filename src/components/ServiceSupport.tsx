@@ -28,7 +28,7 @@ export function ServiceSupport() {
     const formData = new FormData(e.currentTarget);
     
     try {
-      const response = await fetch("https://formspree.io/f/mqpklone", {
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         body: formData,
         headers: {
@@ -36,15 +36,11 @@ export function ServiceSupport() {
         },
       });
       
-      if (response.ok) {
+      const data = await response.json();
+      if (response.ok && data.success) {
         setIsSuccess(true);
       } else {
-        const data = await response.json();
-        if (data.errors && data.errors.length > 0) {
-          alert(data.errors.map((err: any) => err.message).join(", "));
-        } else {
-          alert("There was a problem submitting your request.");
-        }
+        alert(data.message || "There was a problem submitting your request.");
       }
     } catch (error) {
       alert("There was a problem submitting your request.");
@@ -133,6 +129,10 @@ export function ServiceSupport() {
               <>
                 <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-8 tracking-tight">Support Inquiry</h3>
                 <form className="space-y-6" onSubmit={handleSubmit}>
+                  <input type="hidden" name="access_key" value="83972aad-2996-43f1-8123-58acf2ebe58d" />
+                  <input type="hidden" name="subject" value="New Stranxx Support Request" />
+                  <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Name</label>
