@@ -4,6 +4,8 @@ import { useState } from "react";
 export function ServiceSupport() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedSegment, setSelectedSegment] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const handleOpenModal = (segment: string) => {
     setSelectedSegment(segment);
@@ -13,6 +15,37 @@ export function ServiceSupport() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
     setSelectedSegment("");
+    setTimeout(() => {
+      setIsSuccess(false);
+      setIsSubmitting(false);
+    }, 300);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    const formData = new FormData(e.currentTarget);
+    
+    try {
+      const response = await fetch("https://formspree.io/f/mqpklone", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+      
+      if (response.ok) {
+        setIsSuccess(true);
+      } else {
+        alert("There was a problem submitting your request.");
+      }
+    } catch (error) {
+      alert("There was a problem submitting your request.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -77,47 +110,76 @@ export function ServiceSupport() {
 
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-white/80 backdrop-blur-md">
-          <div className="relative bg-white border border-black/10 rounded-[32px] w-full max-w-lg p-10 shadow-2xl text-left">
+          <div className="relative bg-white border border-black/10 rounded-[32px] w-full max-w-2xl p-10 shadow-2xl text-left max-h-[90vh] overflow-y-auto">
             <button 
               onClick={handleCloseModal}
               className="absolute top-6 right-6 text-black/50 hover:text-black transition-colors"
             >
               <X className="w-6 h-6" />
             </button>
-            <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-8 tracking-tight">Inquiry Form</h3>
-            <form className="space-y-6" onSubmit={(e) => { 
-              e.preventDefault(); 
-              const formData = new FormData(e.currentTarget);
-              const name = formData.get('name');
-              const contact = formData.get('contact');
-              const remarks = formData.get('remarks');
-              
-              const subject = encodeURIComponent(`Inquiry: ${selectedSegment}`);
-              const body = encodeURIComponent(`Name: ${name}\nContact: ${contact}\nSegment: ${selectedSegment}\n\nRemarks:\n${remarks}`);
-              
-              window.location.href = `mailto:Info@stranxx.com?subject=${subject}&body=${body}`;
-              handleCloseModal(); 
-            }}>
-              <div>
-                <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Name</label>
-                <input type="text" name="name" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Your Name" />
+            
+            {isSuccess ? (
+              <div className="text-center py-12">
+                <CheckCircle className="w-16 h-16 text-[#0066cc] mx-auto mb-6" />
+                <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-4 tracking-tight">Support Request Submitted Successfully</h3>
+                <p className="text-[#86868b] mb-8 font-sans">Our team has received your inquiry and will be in touch shortly.</p>
+                <button onClick={handleCloseModal} className="bg-[#1d1d1f] text-white font-medium text-[15px] px-8 py-3 rounded-xl hover:bg-[#1d1d1f]/90 transition-colors">
+                  Close
+                </button>
               </div>
-              <div>
-                <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Contact Details</label>
-                <input type="text" name="contact" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Email or Phone Number" />
-              </div>
-              <div>
-                <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Segment</label>
-                <input type="text" readOnly value={selectedSegment} className="w-full bg-[#f5f5f7]/50 border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f]/70 focus:outline-none cursor-not-allowed" />
-              </div>
-              <div>
-                <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Remarks</label>
-                <textarea name="remarks" rows={4} className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors resize-none" placeholder="How can we help you?"></textarea>
-              </div>
-              <button type="submit" className="w-full bg-[#1d1d1f] text-white font-medium text-[15px] px-8 py-4 rounded-xl hover:bg-[#1d1d1f]/90 transition-colors mt-8">
-                Submit Inquiry
-              </button>
-            </form>
+            ) : (
+              <>
+                <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-8 tracking-tight">Support Inquiry</h3>
+                <form className="space-y-6" onSubmit={handleSubmit}>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Name</label>
+                      <input type="text" name="Name" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Your Name" />
+                    </div>
+                    <div>
+                      <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Company</label>
+                      <input type="text" name="Company" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Company Name" />
+                    </div>
+                    <div>
+                      <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Phone</label>
+                      <input type="tel" name="Phone" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Phone Number" />
+                    </div>
+                    <div>
+                      <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Email</label>
+                      <input type="email" name="Email" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Email Address" />
+                    </div>
+                    <div>
+                      <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Location</label>
+                      <input type="text" name="Location" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="City, Region" />
+                    </div>
+                    <div>
+                      <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Equipment Type</label>
+                      <input type="text" name="Equipment Type" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="e.g. Generator, Panel" />
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Segment</label>
+                      <input type="text" name="Segment" readOnly value={selectedSegment} className="w-full bg-[#f5f5f7]/50 border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f]/70 focus:outline-none cursor-not-allowed" />
+                    </div>
+                    <div>
+                      <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Nature of Issue</label>
+                      <input type="text" name="Nature of Issue" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Brief issue summary" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Description</label>
+                    <textarea name="Description" required rows={4} className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors resize-none" placeholder="Provide detailed information here..."></textarea>
+                  </div>
+                  
+                  <button type="submit" disabled={isSubmitting} className="w-full bg-[#1d1d1f] text-white font-medium text-[15px] px-8 py-4 rounded-xl hover:bg-[#1d1d1f]/90 transition-colors mt-8 disabled:opacity-70 flex items-center justify-center gap-2">
+                    {isSubmitting ? "Submitting Request..." : "Submit Inquiry"}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
       )}
