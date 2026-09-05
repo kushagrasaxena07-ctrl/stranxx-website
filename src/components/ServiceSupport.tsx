@@ -88,7 +88,7 @@ export function ServiceSupport() {
 
         <div className="bg-white p-10 rounded-[32px] border border-black/5 hover:border-black/10 transition-all duration-300 shadow-sm hover:shadow-md">
           <PhoneCall className="w-8 h-8 text-[#1d1d1f] mb-6" />
-          <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-4 tracking-tight">GET IN TOUCH</h3>
+          <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-4 tracking-tight">BUSINESS ENQUIRY</h3>
           <p className="text-[#86868b] mb-8 leading-relaxed">
             Let's Power Your Next Project.
           </p>

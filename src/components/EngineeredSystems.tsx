@@ -1,7 +1,7 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import dgImage from "../assets/images/regenerated_image_1787557488489.png";
-import panelImage from "../assets/images/stranxx_lt_panels_1787500703584.jpg";
+import panelImage from "../assets/images/regenerated_image_1788631419935.png";
 import servoImage from "../assets/images/regenerated_image_1787555922847.png";
 import bessImage from "../assets/images/regenerated_image_1787557190781.png";
 

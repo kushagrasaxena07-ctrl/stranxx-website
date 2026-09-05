@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import slide1 from "../assets/images/stranxx_bess_solar_1787500686947.jpg";
 import slide2 from "../assets/images/hero_slider_2.png";
-import slide3 from "../assets/images/regenerated_image_1788522284990.png";
+import slide3 from "../assets/images/hero_slider_3.png";
 
 const slides = [
   { id: 1, src: slide1, alt: "BESS and Solar Integration" },
@@ -36,9 +37,9 @@ export function Hero() {
           <button className="bg-[#1d1d1f] text-white px-8 py-3 rounded-full font-medium text-[15px] hover:bg-[#1d1d1f]/90 transition-colors flex items-center gap-2">
             Explore Systems
           </button>
-          <button className="bg-transparent text-[#1d1d1f] px-8 py-3 rounded-full font-medium text-[15px] hover:bg-black/5 transition-colors flex items-center gap-2">
+          <Link to="/about-us" className="bg-transparent text-[#1d1d1f] px-8 py-3 rounded-full font-medium text-[15px] hover:bg-black/5 transition-colors flex items-center gap-2">
             Learn more <ArrowRight className="w-4 h-4" />
-          </button>
+          </Link>
         </div>
       </div>
 
