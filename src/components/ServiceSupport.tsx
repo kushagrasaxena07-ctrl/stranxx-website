@@ -99,10 +99,7 @@ export function ServiceSupport() {
               <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Root cause analysis
             </li>
           </ul>
-          <button onClick={() => {
-            const subject = encodeURIComponent("Emergency Support Inquiry");
-            window.location.href = `mailto:Info@stranxx.com?subject=${subject}`;
-          }} className="font-medium text-[#1d1d1f] flex items-center gap-2 hover:gap-3 transition-all text-sm">
+          <button onClick={() => handleOpenModal("Emergency Support")} className="font-medium text-[#1d1d1f] flex items-center gap-2 hover:gap-3 transition-all text-sm">
             Contact Support <ArrowRight className="w-4 h-4" />
           </button>
         </div>
