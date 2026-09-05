@@ -35,10 +35,10 @@ export function ServiceSupport() {
           </p>
           <ul className="space-y-3 mb-10">
             <li className="flex items-center gap-3 text-sm text-[#86868b]">
-              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Thermographic scanning
+              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Maintenance Schedule and Solution
             </li>
             <li className="flex items-center gap-3 text-sm text-[#86868b]">
-              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Load bank testing
+              <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Product Testing
             </li>
             <li className="flex items-center gap-3 text-sm text-[#86868b]">
               <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Compliance auditing
@@ -66,7 +66,10 @@ export function ServiceSupport() {
               <CheckCircle className="w-4 h-4 text-[#0066cc]" /> Root cause analysis
             </li>
           </ul>
-          <button onClick={() => handleOpenModal("Emergency Support")} className="font-medium text-[#1d1d1f] flex items-center gap-2 hover:gap-3 transition-all text-sm">
+          <button onClick={() => {
+            const subject = encodeURIComponent("Emergency Support Inquiry");
+            window.location.href = `mailto:Info@stranxx.com?subject=${subject}`;
+          }} className="font-medium text-[#1d1d1f] flex items-center gap-2 hover:gap-3 transition-all text-sm">
             Contact Support <ArrowRight className="w-4 h-4" />
           </button>
         </div>
@@ -82,14 +85,26 @@ export function ServiceSupport() {
               <X className="w-6 h-6" />
             </button>
             <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-8 tracking-tight">Inquiry Form</h3>
-            <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); handleCloseModal(); }}>
+            <form className="space-y-6" onSubmit={(e) => { 
+              e.preventDefault(); 
+              const formData = new FormData(e.currentTarget);
+              const name = formData.get('name');
+              const contact = formData.get('contact');
+              const remarks = formData.get('remarks');
+              
+              const subject = encodeURIComponent(`Inquiry: ${selectedSegment}`);
+              const body = encodeURIComponent(`Name: ${name}\nContact: ${contact}\nSegment: ${selectedSegment}\n\nRemarks:\n${remarks}`);
+              
+              window.location.href = `mailto:Info@stranxx.com?subject=${subject}&body=${body}`;
+              handleCloseModal(); 
+            }}>
               <div>
                 <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Name</label>
-                <input type="text" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Your Name" />
+                <input type="text" name="name" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Your Name" />
               </div>
               <div>
                 <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Contact Details</label>
-                <input type="text" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Email or Phone Number" />
+                <input type="text" name="contact" required className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors" placeholder="Email or Phone Number" />
               </div>
               <div>
                 <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Segment</label>
@@ -97,7 +112,7 @@ export function ServiceSupport() {
               </div>
               <div>
                 <label className="block font-sans text-xs text-[#86868b] tracking-wider mb-2 uppercase font-medium">Remarks</label>
-                <textarea rows={4} className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors resize-none" placeholder="How can we help you?"></textarea>
+                <textarea name="remarks" rows={4} className="w-full bg-[#f5f5f7] border border-black/5 rounded-xl px-4 py-3 text-[#1d1d1f] focus:outline-none focus:border-[#0066cc] transition-colors resize-none" placeholder="How can we help you?"></textarea>
               </div>
               <button type="submit" className="w-full bg-[#1d1d1f] text-white font-medium text-[15px] px-8 py-4 rounded-xl hover:bg-[#1d1d1f]/90 transition-colors mt-8">
                 Submit Inquiry

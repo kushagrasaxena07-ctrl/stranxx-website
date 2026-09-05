@@ -1,4 +1,5 @@
 import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import dgImage from "../assets/images/regenerated_image_1787557488489.png";
 import panelImage from "../assets/images/stranxx_lt_panels_1787500703584.jpg";
 import servoImage from "../assets/images/regenerated_image_1787555922847.png";
@@ -43,14 +44,14 @@ export function EngineeredSystems() {
             Robust industrial power infrastructure built to exact specifications.
           </p>
         </div>
-        <a href="#" className="inline-flex items-center gap-2 text-[#0066cc] hover:text-[#0066cc]/80 transition-colors font-sans text-sm font-medium">
+        <Link to="/products" className="inline-flex items-center gap-2 text-[#0066cc] hover:text-[#0066cc]/80 transition-colors font-sans text-sm font-medium">
           View all specifications <ArrowUpRight className="w-4 h-4" />
-        </a>
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {systems.map((system) => (
-          <div key={system.id} className="group bg-white border border-black/5 hover:border-black/10 transition-all duration-300 rounded-[24px] overflow-hidden flex flex-col cursor-pointer shadow-sm hover:shadow-md">
+          <Link to="/products" key={system.id} className="group bg-white border border-black/5 hover:border-black/10 transition-all duration-300 rounded-[24px] overflow-hidden flex flex-col cursor-pointer shadow-sm hover:shadow-md">
             <div className="p-8 pb-0 z-10 flex flex-col">
               <div className="font-sans text-xs text-[#86868b] uppercase tracking-widest font-medium mb-3">
                 {system.id}
@@ -73,7 +74,7 @@ export function EngineeredSystems() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
