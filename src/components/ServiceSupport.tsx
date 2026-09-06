@@ -66,7 +66,7 @@ export function ServiceSupport() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-left">
         <div className="bg-white p-10 rounded-[32px] border border-black/5 hover:border-black/10 transition-all duration-300 shadow-sm hover:shadow-md">
           <Wrench className="w-8 h-8 text-[#1d1d1f] mb-6" />
-          <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-4 tracking-tight">Complaint & Maintenance support</h3>
+          <h3 className="text-2xl font-semibold text-[#1d1d1f] mb-4 tracking-tight uppercase">Complaint & Maintenance</h3>
           <p className="text-[#86868b] mb-8 leading-relaxed">
             Technical support and maintenance engineered to minimise downtime and maximise reliability.
           </p>

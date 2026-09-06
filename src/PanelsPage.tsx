@@ -181,9 +181,9 @@ export function PanelsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { n: "01", t: "INCOMING", d: "ACB/MCCB or appropriate incoming switching arrangement.", img: "https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?q=80&w=2070&auto=format&fit=crop" },
-              { n: "02", t: "BUSBAR SYSTEM", d: "Engineered busbar arrangement based on rated current, short-circuit requirements and configuration.", img: "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?q=80&w=2069&auto=format&fit=crop" },
+              { n: "02", t: "BUSBAR SYSTEM", d: "Engineered busbar arrangement based on rated current, short-circuit requirements and configuration.", img: "https://upload.wikimedia.org/wikipedia/commons/1/10/Busbar_in_an_LT_panel.png" },
               { n: "03", t: "PROTECTION", d: "Protection devices selected according to system requirements and coordination philosophy.", img: "https://images.unsplash.com/photo-1563770660941-20978e870e26?q=80&w=2070&auto=format&fit=crop" },
-              { n: "04", t: "DISTRIBUTION", d: "Multiple outgoing feeders configured for connected loads.", img: "https://images.unsplash.com/photo-1581092334812-747fceb5cdae?q=80&w=2070&auto=format&fit=crop" },
+              { n: "04", t: "DISTRIBUTION", d: "Multiple outgoing feeders configured for connected loads.", img: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Electrical_distribution_panel.jpg" },
               { n: "05", t: "MONITORING", d: "Digital meters and monitoring systems provide visibility of electrical parameters.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" },
               { n: "06", t: "CONTROL", d: "Control circuits, interlocks and automation integrated according to the application.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop" }
             ].map((step, i) => (

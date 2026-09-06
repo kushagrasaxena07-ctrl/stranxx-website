@@ -128,9 +128,9 @@ export function DgPage() {
             {[
               { t: "INDUSTRIAL", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop", d: "Reliable standby and prime power for manufacturing plants, process industries and production facilities." },
               { t: "COMMERCIAL", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop", d: "Backup power solutions for offices, commercial buildings, warehouses and business facilities." },
-              { t: "CRITICAL INFRASTRUCTURE", img: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?q=80&w=2070&auto=format&fit=crop", d: "Power continuity solutions for applications where interruption can have significant operational consequences." },
-              { t: "CONSTRUCTION", img: "https://images.unsplash.com/photo-1541888086903-efdc748291b0?q=80&w=2070&auto=format&fit=crop", d: "Robust temporary and site power solutions for demanding construction environments." },
-              { t: "TELECOM & INFRASTRUCTURE", img: "https://images.unsplash.com/photo-1545208942-e0c9c7f999bd?q=80&w=2070&auto=format&fit=crop", d: "Dependable backup generation for critical infrastructure and remote installations." },
+              { t: "CRITICAL INFRASTRUCTURE", img: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2070&auto=format&fit=crop", d: "Power continuity solutions for applications where interruption can have significant operational consequences." },
+              { t: "CONSTRUCTION", img: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Drilling_rig_at_a_construction_site_in_Tuntorp.jpg", d: "Robust temporary and site power solutions for demanding construction environments." },
+              { t: "TELECOM & INFRASTRUCTURE", img: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Waikaretu_telecommunications_tower.jpg", d: "Dependable backup generation for critical infrastructure and remote installations." },
               { t: "DATA & MISSION-CRITICAL", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2070&auto=format&fit=crop", d: "Engineered backup-power architectures for facilities requiring high availability." }
             ].map((app, idx) => (
               <div key={idx} className="group relative bg-obsidian rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all h-[400px]">
