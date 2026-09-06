@@ -556,13 +556,13 @@ export function DgPage() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4 relative z-10">
               {[
-                { n: "01", t: "LOAD STUDY", d: "Understand the facility and electrical demand.", img: "https://images.unsplash.com/photo-1541888086903-efdc748291b0?q=80&w=2070&auto=format&fit=crop" },
+                { n: "01", t: "LOAD STUDY", d: "Understand the facility and electrical demand.", img: "https://upload.wikimedia.org/wikipedia/commons/7/79/Tektronix_475A_oscilloscope.jpg" },
                 { n: "02", t: "DG SIZING", d: "Determine appropriate generator configuration.", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" },
                 { n: "03", t: "ENGINEERING", d: "Integrate DG, AMF, LT panels and protection.", img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2070&auto=format&fit=crop" },
                 { n: "04", t: "MANUFACTURING", d: "Panel assembly, controls and system integration.", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop" },
                 { n: "05", t: "TESTING", d: "Functional and electrical verification.", img: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=2070&auto=format&fit=crop" },
                 { n: "06", t: "COMMISSIONING", d: "Site integration and operational commissioning.", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop" },
-                { n: "07", t: "SUPPORT", d: "Maintenance and technical support.", img: "https://images.unsplash.com/photo-1581091870621-0a44256eb91f?q=80&w=2070&auto=format&fit=crop" }
+                { n: "07", t: "SUPPORT", d: "Maintenance and technical support.", img: "https://image.shutterstock.com/image-photo/building-deal-happy-people-handshake-260nw-2310821901.jpg" }
               ].map((step, i) => (
                 <div key={i} className="relative p-5 rounded-2xl border border-white/10 shadow-sm text-center overflow-hidden group min-h-[260px] flex flex-col justify-end bg-obsidian">
                   <img src={step.img} alt={step.t} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500 z-0" />
