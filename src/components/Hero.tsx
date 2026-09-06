@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 import slide1 from "../assets/images/stranxx_bess_solar_1787500686947.jpg";
-import slide2 from "../assets/images/hero_slider_2.png";
+import slide2 from "../assets/images/slider_image_3.png";
 import slide3 from "../assets/images/hero_slider_3.png";
 
 const slides = [

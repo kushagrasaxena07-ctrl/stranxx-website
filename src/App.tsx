@@ -8,6 +8,7 @@ import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 import { Home } from "./Home";
 import { ProductsPage } from "./ProductsPage";
+import { AboutUsPage } from "./AboutUsPage";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/products" element={<ProductsPage />} />
         </Routes>
         <Footer />
