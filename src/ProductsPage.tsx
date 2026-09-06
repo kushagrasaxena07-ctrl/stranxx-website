@@ -103,10 +103,6 @@ export function ProductsPage() {
                   ))}
                 </ul>
               </div>
-              
-              <button className="mt-8 font-medium text-[#0066cc] flex items-center gap-2 hover:gap-3 transition-all">
-                Request Specifications <ArrowRight className="w-4 h-4" />
-              </button>
             </div>
           </div>
         ))}

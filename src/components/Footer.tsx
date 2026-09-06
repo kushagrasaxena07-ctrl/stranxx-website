@@ -1,5 +1,6 @@
 import { HexagonLogo } from "./HexagonLogo";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export function Footer() {
   return (
@@ -14,21 +15,20 @@ export function Footer() {
           <div>
             <h4 className="font-semibold text-[#1d1d1f] mb-4 text-xs">Solutions</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Diesel & Gas Gensets</a></li>
-              <li><a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Electrical Panels</a></li>
-              <li><a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Servo Stabilisers</a></li>
-              <li><a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Battery Energy Storage</a></li>
-              <li><a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Solar Solutions</a></li>
+              <li><Link to="/dg" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Diesel & Gas Gensets</Link></li>
+              <li><Link to="/panels" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Electrical Panels</Link></li>
+              <li><Link to="/servo" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Servo Stabilisers</Link></li>
+              <li><Link to="/bess" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Battery Energy Storage</Link></li>
+              <li><Link to="/products" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Solar Solutions</Link></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-[#1d1d1f] mb-4 text-xs">Company</h4>
             <ul className="space-y-3">
-              <li><a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">About Us</a></li>
-              <li><a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Ethos</a></li>
-              <li><a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Case Studies</a></li>
-              <li><a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Careers</a></li>
-              <li><a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">News</a></li>
+              <li><Link to="/about-us" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">About Us</Link></li>
+              <li><a href="/#ethos" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Ethos</a></li>
+              <li><Link to="/case-studies" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Case Studies</Link></li>
+              <li><Link to="/careers" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Careers</Link></li>
             </ul>
           </div>
           <div>
@@ -37,7 +37,7 @@ export function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-[#86868b] shrink-0 mt-0.5" />
                 <span className="text-[#86868b] text-xs leading-relaxed">
-                  PLT NO. 45, INDUSTRIAL AREA GULDHAR 2,<br />
+                  Plot No. 45, INDUSTRIAL AREA GULDHAR 2,<br />
                   MEERUT ROAD, GHAZIABAD. 201017
                 </span>
               </li>
@@ -67,11 +67,6 @@ export function Footer() {
           <p className="text-[#86868b] text-xs">
             Copyright &copy; {new Date().getFullYear()} Stranxx LLP. All rights reserved.
           </p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs">Privacy Policy</a>
-            <a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs border-l border-black/10 pl-6">Terms of Service</a>
-            <a href="#" className="text-[#86868b] hover:text-[#1d1d1f] transition-colors text-xs border-l border-black/10 pl-6">Legal</a>
-          </div>
         </div>
       </div>
     </footer>

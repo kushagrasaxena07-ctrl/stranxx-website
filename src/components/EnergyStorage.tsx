@@ -1,4 +1,5 @@
 import { Battery, Zap, Shield, ArrowRight, Settings, Server, Cpu } from "lucide-react";
+import { Link } from "react-router-dom";
 import bessImage from "../assets/images/regenerated_image_1787557190781.png";
 import dgImage from "../assets/images/regenerated_image_1787557488489.png";
 import panelImage from "../assets/images/regenerated_image_1788631419935.png";
@@ -13,6 +14,7 @@ const products = [
     icon: Battery,
     image: bessImage,
     buttonText: "Explore BESS",
+    link: "/bess",
     features: [
       {
         title: "Peak Saving",
@@ -34,6 +36,7 @@ const products = [
     icon: Settings,
     image: dgImage,
     buttonText: "Explore DG Sets",
+    link: "/dg",
     features: [
       {
         title: "Continuous Power",
@@ -55,6 +58,7 @@ const products = [
     icon: Server,
     image: panelImage,
     buttonText: "Explore Panels",
+    link: "/panels",
     features: [
       {
         title: "Precise Distribution",
@@ -76,6 +80,7 @@ const products = [
     icon: Cpu,
     image: servoImage,
     buttonText: "Explore Stabilisers",
+    link: "/servo",
     features: [
       {
         title: "Voltage Regulation",
@@ -129,9 +134,9 @@ export function EnergyStorage() {
                 })}
               </div>
               
-              <button className="bg-[#1d1d1f] text-white w-max px-8 py-3 rounded-full font-medium text-[15px] hover:bg-[#1d1d1f]/90 transition-colors flex items-center gap-2">
+              <Link to={product.link || "/"} className="bg-[#1d1d1f] text-white w-max px-8 py-3 rounded-full font-medium text-[15px] hover:bg-[#1d1d1f]/90 transition-colors flex items-center gap-2">
                 {product.buttonText} <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
             
             <div className="w-full md:w-1/2 relative min-h-[400px]">

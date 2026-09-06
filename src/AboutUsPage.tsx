@@ -7,7 +7,7 @@ import heroImg from './assets/images/stranxx_green_future_1787500743386.jpg';
 import panelImg from './assets/images/regenerated_image_1788631419935.png';
 import solarImg from './assets/images/stranxx_bess_solar_1787500686947.jpg';
 import dgSetsImg from './assets/images/regenerated_image_1788631709482.png';
-import servoImg from './assets/images/stranxx_servo_stabilizers_1787500724815.jpg';
+import servoImg from './assets/images/regenerated_image_1788693196928.png';
 
 const premiumPoints = [
   {

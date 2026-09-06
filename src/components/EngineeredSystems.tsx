@@ -10,25 +10,29 @@ const systems = [
     id: "Power Generation",
     name: "DG Sets",
     desc: "High-capacity prime and standby power generation units built for continuous heavy-duty operation.",
-    image: dgImage
+    image: dgImage,
+    link: "/dg"
   },
   {
     id: "Power Distribution",
     name: "Electrical Panels",
     desc: "Custom-engineered panels ensuring precise power distribution and robust system protection.",
-    image: panelImage
+    image: panelImage,
+    link: "/panels"
   },
   {
     id: "Power Regulation",
     name: "Servo Stabilisers",
     desc: "Automated voltage regulation systems safeguarding critical infrastructure from fluctuations.",
-    image: servoImage
+    image: servoImage,
+    link: "/servo"
   },
   {
     id: "Energy Storage",
     name: "BESS Storage",
     desc: "Scalable battery energy storage solutions for peak shaving and renewable integration.",
-    image: bessImage
+    image: bessImage,
+    link: "/bess"
   }
 ];
 
@@ -44,14 +48,11 @@ export function EngineeredSystems() {
             Robust industrial power infrastructure built to exact specifications.
           </p>
         </div>
-        <Link to="/products" className="inline-flex items-center gap-2 text-[#0066cc] hover:text-[#0066cc]/80 transition-colors font-sans text-sm font-medium">
-          View all specifications <ArrowUpRight className="w-4 h-4" />
-        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {systems.map((system) => (
-          <Link to="/products" key={system.id} className="group bg-white border border-black/5 hover:border-black/10 transition-all duration-300 rounded-[24px] overflow-hidden flex flex-col cursor-pointer shadow-sm hover:shadow-md">
+          <Link to={system.link} key={system.id} className="group bg-white border border-black/5 hover:border-black/10 transition-all duration-300 rounded-[24px] overflow-hidden flex flex-col cursor-pointer shadow-sm hover:shadow-md">
             <div className="p-8 pb-0 z-10 flex flex-col">
               <div className="font-sans text-xs text-[#86868b] uppercase tracking-widest font-medium mb-3">
                 {system.id}
