@@ -38,7 +38,7 @@ export function ContactModal({ isOpen, onClose }: ContactModalProps) {
           Accept: "application/json",
         },
         body: JSON.stringify({
-          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE",
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "83972aad-2996-43f1-8123-58acf2ebe58d",
           name: formData.fullName,
           email: formData.emailId,
           company: formData.companyName,

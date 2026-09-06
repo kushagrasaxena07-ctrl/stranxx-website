@@ -24,7 +24,7 @@ export function CareersPage() {
       const formData = new FormData(e.currentTarget);
       
       // Append Web3Forms specific fields
-      formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "YOUR_ACCESS_KEY_HERE");
+      formData.append("access_key", import.meta.env.VITE_WEB3FORMS_ACCESS_KEY || "83972aad-2996-43f1-8123-58acf2ebe58d");
       formData.append("subject", `New Job Application from ${formData.get("name")}`);
       formData.append("from_name", "Stranxx Careers Portal");
       
