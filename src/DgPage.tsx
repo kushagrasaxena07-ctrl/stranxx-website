@@ -133,16 +133,100 @@ export function DgPage() {
               { t: "TELECOM & INFRASTRUCTURE", img: "https://upload.wikimedia.org/wikipedia/commons/4/4c/Waikaretu_telecommunications_tower.jpg", d: "Dependable backup generation for critical infrastructure and remote installations." },
               { t: "DATA & MISSION-CRITICAL", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=2070&auto=format&fit=crop", d: "Engineered backup-power architectures for facilities requiring high availability." }
             ].map((app, idx) => (
-              <div key={idx} className="group relative bg-obsidian rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all h-[400px]">
-                <img src={app.img} alt={app.t} className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity" />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/95 via-obsidian/50 to-transparent"></div>
+              <div key={idx} className="group relative bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all h-[400px]">
+                <img src={app.img} alt={app.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/50 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-10 w-full">
                   <h3 className="text-2xl font-bold text-black mb-3 tracking-wide">{app.t}</h3>
-                  <p className="text-gray-300 text-sm font-medium leading-relaxed">{app.d}</p>
+                  <p className="text-black text-sm font-medium leading-relaxed">{app.d}</p>
                 </div>
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* DG Selection */}
+      <section className="py-24 bg-obsidian text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#0066cc]/10 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
+        <div className="max-w-[800px] mx-auto px-4 md:px-8 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">WHAT SIZE DG DO YOU NEED?</h2>
+            <p className="text-xl text-gray-400">Instead of just a kVA rating, tell us about your load.</p>
+          </div>
+          
+          <form className="space-y-6 bg-white/5 p-8 md:p-12 rounded-[32px] border border-white/10 backdrop-blur-md" onSubmit={handleCalculate}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold tracking-wide text-gray-300">1. Connected Load (kW)</label>
+                <input type="number" value={connectedLoad} onChange={(e) => setConnectedLoad(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="e.g. 500" />
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold tracking-wide text-gray-300">2. Maximum Demand (kW)</label>
+                <input type="number" value={maxDemand} onChange={(e) => setMaxDemand(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="e.g. 350" />
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold tracking-wide text-gray-300">3. Motor Loads</label>
+                <select value={motorLoads} onChange={(e) => setMotorLoads(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
+                  <option className="bg-obsidian" value="Yes">Yes</option>
+                  <option className="bg-obsidian" value="No">No</option>
+                </select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold tracking-wide text-gray-300">4. Starting Method</label>
+                <select value={startingMethod} onChange={(e) => setStartingMethod(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
+                  <option className="bg-obsidian" value="DOL">DOL</option>
+                  <option className="bg-obsidian" value="Star-Delta">Star-Delta</option>
+                  <option className="bg-obsidian" value="Soft Starter">Soft Starter</option>
+                  <option className="bg-obsidian" value="VFD">VFD</option>
+                </select>
+              </div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold tracking-wide text-gray-300">5. Application</label>
+                <select value={application} onChange={(e) => setApplication(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
+                  <option className="bg-obsidian" value="Industrial">Industrial</option>
+                  <option className="bg-obsidian" value="Commercial">Commercial</option>
+                  <option className="bg-obsidian" value="Construction">Construction</option>
+                  <option className="bg-obsidian" value="Critical">Critical</option>
+                </select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold tracking-wide text-gray-300">6. Required Operation</label>
+                <select value={operation} onChange={(e) => setOperation(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
+                  <option className="bg-obsidian" value="Standby">Standby</option>
+                  <option className="bg-obsidian" value="Prime">Prime</option>
+                </select>
+              </div>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold tracking-wide text-gray-300">7. Fuel Preference</label>
+                <select value={fuel} onChange={(e) => setFuel(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
+                  <option className="bg-obsidian" value="Diesel">Diesel</option>
+                  <option className="bg-obsidian" value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            
+            {isSubmitted && calculatedKva ? (
+              <div className="mt-8 p-8 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-2xl text-center">
+                <h4 className="text-[#D4AF37] font-bold tracking-widest text-sm mb-2 uppercase">Estimated Requirement</h4>
+                <div className="text-5xl md:text-6xl font-bold text-white mb-4">{calculatedKva} <span className="text-2xl text-gray-400">kVA</span></div>
+                <p className="text-gray-300 text-sm mb-6 leading-relaxed">Your technical requirements have been logged and sent to our engineering team.<br/>We will contact you shortly with a detailed proposal.</p>
+                <button type="button" onClick={() => setIsSubmitted(false)} className="px-6 py-2 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-colors text-sm font-medium">
+                  Recalculate
+                </button>
+              </div>
+            ) : (
+              <button type="submit" className="w-full bg-[#D4AF37] hover:bg-white text-obsidian font-bold py-4 rounded-xl transition-colors mt-4">
+                Calculate & Request Quote
+              </button>
+            )}
+          </form>
         </div>
       </section>
 
@@ -188,45 +272,6 @@ export function DgPage() {
         </div>
       </section>
 
-      {/* 5. The STRANXX DG Architecture */}
-      <section className="py-24 bg-obsidian text-white overflow-hidden relative">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">ENGINEERED AS ONE<br/>POWER SYSTEM</h2>
-          </div>
-          
-          <div className="flex flex-col md:flex-row items-stretch justify-center gap-6">
-            {/* Visual Flow Left */}
-            <div className="md:w-1/3 flex flex-col justify-between space-y-4 bg-white/5 border border-white/10 p-8 rounded-[32px]">
-              {["FUEL", "ENGINE", "ALTERNATOR", "CONTROL SYSTEM", "AMF / ATS", "PROTECTION", "LOAD"].map((step, i, arr) => (
-                <div key={i} className="flex flex-col items-center">
-                  <div className="w-full text-center py-3 bg-white/10 rounded-lg text-sm font-bold tracking-widest text-[#D4AF37]">
-                    {step}
-                  </div>
-                  {i < arr.length - 1 && <ArrowDown className="w-5 h-5 text-gray-500 my-2" />}
-                </div>
-              ))}
-            </div>
-            
-            {/* Details Right */}
-            <div className="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-4">
-              {[
-                { title: "ENGINE", desc: "Selected according to required power rating, duty cycle, operating conditions and application." },
-                { title: "ALTERNATOR", desc: "Designed to deliver stable electrical output appropriate to the connected load and system configuration." },
-                { title: "DIGITAL CONTROLLER", desc: "Real-time monitoring and control of critical operating parameters." },
-                { title: "AMF / ATS", desc: "Automatic detection of mains failure and controlled transfer to generator supply where configured." },
-                { title: "PROTECTION", desc: "Electrical and engine protection functions designed around the selected system." },
-                { title: "ACOUSTIC ENCLOSURE", desc: "Engineered enclosure and exhaust arrangements to support noise-control requirements. CPCB guidance includes requirements concerning acoustic enclosure and exhaust-muffler provisions for applicable DG sets." }
-              ].map((item, i) => (
-                <div key={i} className="bg-white/5 border border-white/10 p-8 rounded-[24px] hover:bg-white/10 transition-colors">
-                  <h3 className="text-lg font-bold mb-3 tracking-widest text-[#D4AF37]">{item.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed font-medium">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* 6. Intelligent Control */}
       <section className="py-24 bg-[#f5f5f7]">
@@ -334,69 +379,6 @@ export function DgPage() {
         </div>
       </section>
 
-      {/* 8. DG + AMF + LT PANEL */}
-      <section className="py-24 bg-obsidian text-white">
-        <div className="max-w-[1024px] mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-12">
-            FROM GENERATION TO DISTRIBUTION.<br/><span className="text-[#D4AF37]">ONE ENGINEERED SOLUTION.</span>
-          </h2>
-          
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-16 font-mono font-bold tracking-widest text-lg">
-            <div className="bg-white/10 px-6 py-4 rounded-xl border border-white/20 text-black">DG SET</div>
-            <ArrowRight className="w-6 h-6 text-[#D4AF37] rotate-90 md:rotate-0" />
-            <div className="bg-white/10 px-6 py-4 rounded-xl border border-white/20 text-black">AMF PANEL</div>
-            <ArrowRight className="w-6 h-6 text-[#D4AF37] rotate-90 md:rotate-0" />
-            <div className="bg-white/10 px-6 py-4 rounded-xl border border-white/20 text-black">LT PANEL</div>
-            <ArrowRight className="w-6 h-6 text-[#D4AF37] rotate-90 md:rotate-0" />
-            <div className="bg-white/10 px-6 py-4 rounded-xl border border-[#D4AF37] text-[#D4AF37]">CRITICAL LOAD</div>
-          </div>
-          
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            STRANXX can integrate DG generation with AMF control and LT distribution systems to create a coordinated backup-power architecture.
-          </p>
-          <p className="mt-6 text-2xl font-bold text-black tracking-widest uppercase">One system. One engineering approach.</p>
-        </div>
-      </section>
-
-      {/* 9. DG + BESS */}
-      <section className="py-24 bg-[#f5f5f7]">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">THE NEXT GENERATION OF BACKUP POWER</h2>
-          <p className="text-xl font-bold tracking-widest text-[#0066cc] mb-12">DG + BESS</p>
-          
-          <p className="text-lg text-[#86868b] max-w-2xl mx-auto mb-16 font-medium">
-            Combine conventional generation with battery energy storage to create a more flexible energy architecture.
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
-              <h3 className="text-2xl font-bold text-obsidian mb-2">DG</h3>
-              <p className="text-[#86868b] font-medium text-sm">Long-duration energy source</p>
-            </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
-              <h3 className="text-2xl font-bold text-obsidian mb-2">BESS</h3>
-              <p className="text-[#86868b] font-medium text-sm">Fast-response energy storage</p>
-            </div>
-            <div className="bg-white p-8 rounded-3xl shadow-sm border border-black/5">
-              <h3 className="text-2xl font-bold text-obsidian mb-2">EMS</h3>
-              <p className="text-[#86868b] font-medium text-sm">Intelligent energy management</p>
-            </div>
-          </div>
-          
-          <h3 className="text-2xl font-bold tracking-widest mb-12 text-[#1d1d1f] uppercase">= SMARTER POWER</h3>
-          
-          <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto mb-10">
-            {["Peak-load management", "Reduced generator runtime", "Renewable integration", "Load smoothing", "Fast-response support", "Microgrid architectures"].map((tag, i) => (
-              <span key={i} className="px-5 py-2.5 bg-obsidian text-black rounded-full text-sm font-medium tracking-wide">
-                {tag}
-              </span>
-            ))}
-          </div>
-          
-          <p className="text-sm text-[#86868b]">Make clear that actual savings, runtime reduction and performance depend on the project load profile and system design.</p>
-        </div>
-      </section>
-
       {/* 10. Compliance & Quality */}
       <section className="py-24 bg-white border-y border-black/5">
         <div className="max-w-[1280px] mx-auto px-4 md:px-8">
@@ -419,168 +401,12 @@ export function DgPage() {
                 CPCB states that applicable DG models are subject to certification requirements, including Type Approval and Conformity of Production requirements under the relevant regulations.
               </p>
             </div>
-            
-            <div className="bg-obsidian text-white p-10 rounded-[32px] shadow-xl">
-              <h3 className="text-xl font-bold tracking-wide mb-8 text-[#D4AF37]">Rigorous Testing Protocol</h3>
-              <div className="space-y-6 font-mono text-sm">
-                {[
-                  "Visual Inspection", "Wiring Verification", "Controller Testing", 
-                  "Protection Testing", "Functional Testing", "Load Testing"
-                ].map((test, i, arr) => (
-                  <div key={i} className="flex items-center gap-4">
-                    <div className="w-8 h-8 rounded-full border border-[#D4AF37] flex items-center justify-center text-[#D4AF37]">{i+1}</div>
-                    <div className="flex-1 border-b border-white/10 pb-2 text-gray-300 tracking-wide">{test}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+
           </div>
         </div>
       </section>
 
-      {/* 11. DG Selection */}
-      <section className="py-24 bg-obsidian text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#0066cc]/10 blur-[120px] rounded-full translate-x-1/2 -translate-y-1/2"></div>
-        <div className="max-w-[800px] mx-auto px-4 md:px-8 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">WHAT SIZE DG DO YOU NEED?</h2>
-            <p className="text-xl text-gray-400">Instead of just a kVA rating, tell us about your load.</p>
-          </div>
-          
-          <form className="space-y-6 bg-white/5 p-8 md:p-12 rounded-[32px] border border-white/10 backdrop-blur-md" onSubmit={handleCalculate}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-semibold tracking-wide text-gray-300">1. Connected Load (kW)</label>
-                <input type="number" value={connectedLoad} onChange={(e) => setConnectedLoad(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="e.g. 500" />
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold tracking-wide text-gray-300">2. Maximum Demand (kW)</label>
-                <input type="number" value={maxDemand} onChange={(e) => setMaxDemand(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="e.g. 350" />
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-semibold tracking-wide text-gray-300">3. Motor Loads</label>
-                <select value={motorLoads} onChange={(e) => setMotorLoads(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
-                  <option className="bg-obsidian" value="Yes">Yes</option>
-                  <option className="bg-obsidian" value="No">No</option>
-                </select>
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold tracking-wide text-gray-300">4. Starting Method</label>
-                <select value={startingMethod} onChange={(e) => setStartingMethod(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
-                  <option className="bg-obsidian" value="DOL">DOL</option>
-                  <option className="bg-obsidian" value="Star-Delta">Star-Delta</option>
-                  <option className="bg-obsidian" value="Soft Starter">Soft Starter</option>
-                  <option className="bg-obsidian" value="VFD">VFD</option>
-                </select>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <label className="text-sm font-semibold tracking-wide text-gray-300">5. Application</label>
-                <select value={application} onChange={(e) => setApplication(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
-                  <option className="bg-obsidian" value="Industrial">Industrial</option>
-                  <option className="bg-obsidian" value="Commercial">Commercial</option>
-                  <option className="bg-obsidian" value="Construction">Construction</option>
-                  <option className="bg-obsidian" value="Critical">Critical</option>
-                </select>
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold tracking-wide text-gray-300">6. Required Operation</label>
-                <select value={operation} onChange={(e) => setOperation(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
-                  <option className="bg-obsidian" value="Standby">Standby</option>
-                  <option className="bg-obsidian" value="Prime">Prime</option>
-                </select>
-              </div>
-              <div className="space-y-2">
-                <label className="text-sm font-semibold tracking-wide text-gray-300">7. Fuel Preference</label>
-                <select value={fuel} onChange={(e) => setFuel(e.target.value)} className="w-full bg-white/10 border border-white/20 rounded-xl px-4 py-3 text-black focus:outline-none focus:border-[#D4AF37] transition-colors appearance-none">
-                  <option className="bg-obsidian" value="Diesel">Diesel</option>
-                  <option className="bg-obsidian" value="Other">Other</option>
-                </select>
-              </div>
-            </div>
-            
-            {isSubmitted && calculatedKva ? (
-              <div className="mt-8 p-8 bg-[#D4AF37]/10 border border-[#D4AF37]/30 rounded-2xl text-center">
-                <h4 className="text-[#D4AF37] font-bold tracking-widest text-sm mb-2 uppercase">Estimated Requirement</h4>
-                <div className="text-5xl md:text-6xl font-bold text-white mb-4">{calculatedKva} <span className="text-2xl text-gray-400">kVA</span></div>
-                <p className="text-gray-300 text-sm mb-6 leading-relaxed">Your technical requirements have been logged and sent to our engineering team.<br/>We will contact you shortly with a detailed proposal.</p>
-                <button type="button" onClick={() => setIsSubmitted(false)} className="px-6 py-2 border border-white/20 text-white rounded-lg hover:bg-white/10 transition-colors text-sm font-medium">
-                  Recalculate
-                </button>
-              </div>
-            ) : (
-              <button type="submit" className="w-full bg-[#D4AF37] hover:bg-white text-obsidian font-bold py-4 rounded-xl transition-colors mt-4">
-                Calculate & Request Quote
-              </button>
-            )}
-          </form>
-        </div>
-      </section>
 
-      {/* 12. STRANXX Advantage */}
-      <section className="py-24 bg-[#f5f5f7]">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">WHY STRANXX?</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {[
-              { t: "APPLICATION ENGINEERING", d: "We start with the load and application—not simply the generator rating." },
-              { t: "INTEGRATED SYSTEMS", d: "DG, AMF, LT panels, protection and controls can be engineered as one coordinated system." },
-              { t: "CUSTOM CONFIGURATION", d: "Solutions can be adapted to site conditions and operational requirements." },
-              { t: "SERVICEABILITY", d: "Designed with practical operation, maintenance and accessibility in mind." },
-              { t: "ENERGY INTEGRATION", d: "DG solutions can be combined with BESS, solar and intelligent energy-management architectures where appropriate." }
-            ].map((adv, i) => (
-              <div key={i} className="bg-white p-8 rounded-2xl border border-black/5 shadow-sm text-center">
-                <h4 className="font-bold text-sm tracking-widest uppercase mb-4 text-[#1d1d1f] border-b border-black/5 pb-4">{adv.t}</h4>
-                <p className="text-sm text-[#86868b] leading-relaxed font-medium">{adv.d}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 13. Project Journey */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold tracking-tight mb-16 text-center">The Project Journey</h2>
-          
-          <div className="relative">
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -translate-y-1/2"></div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4 relative z-10">
-              {[
-                { n: "01", t: "LOAD STUDY", d: "Understand the facility and electrical demand.", img: "https://upload.wikimedia.org/wikipedia/commons/7/79/Tektronix_475A_oscilloscope.jpg" },
-                { n: "02", t: "DG SIZING", d: "Determine appropriate generator configuration.", img: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" },
-                { n: "03", t: "ENGINEERING", d: "Integrate DG, AMF, LT panels and protection.", img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2070&auto=format&fit=crop" },
-                { n: "04", t: "MANUFACTURING", d: "Panel assembly, controls and system integration.", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop" },
-                { n: "05", t: "TESTING", d: "Functional and electrical verification.", img: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=2070&auto=format&fit=crop" },
-                { n: "06", t: "COMMISSIONING", d: "Site integration and operational commissioning.", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop" },
-                { n: "07", t: "SUPPORT", d: "Maintenance and technical support.", img: "https://image.shutterstock.com/image-photo/building-deal-happy-people-handshake-260nw-2310821901.jpg" }
-              ].map((step, i) => (
-                <div key={i} className="relative p-5 rounded-2xl border border-white/10 shadow-sm text-center overflow-hidden group min-h-[260px] flex flex-col justify-end bg-obsidian">
-                  <img src={step.img} alt={step.t} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500 z-0" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/95 via-obsidian/70 to-obsidian/20 z-0"></div>
-                  
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-10 h-10 bg-[#D4AF37] text-obsidian rounded-full flex items-center justify-center mb-4 font-mono font-bold text-sm">
-                      {step.n}
-                    </div>
-                    <h4 className="font-bold text-xs tracking-widest uppercase mb-2 text-black">{step.t}</h4>
-                    <p className="text-xs text-gray-300 leading-relaxed font-medium">{step.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

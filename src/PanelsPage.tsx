@@ -172,7 +172,7 @@ export function PanelsPage() {
       </section>
 
       {/* 4. Premium Technical Architecture */}
-      <section className="py-24 bg-obsidian text-white overflow-hidden relative">
+      <section className="py-24 bg-white overflow-hidden relative border-y border-black/5">
         <div className="max-w-[1280px] mx-auto px-4 md:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">ENGINEERED FROM THE <br/>BUSBAR TO THE LOAD</h2>
@@ -187,15 +187,15 @@ export function PanelsPage() {
               { n: "05", t: "MONITORING", d: "Digital meters and monitoring systems provide visibility of electrical parameters.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" },
               { n: "06", t: "CONTROL", d: "Control circuits, interlocks and automation integrated according to the application.", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2070&auto=format&fit=crop" }
             ].map((step, i) => (
-              <div key={i} className="group relative bg-white/5 border border-white/10 rounded-[32px] overflow-hidden min-h-[300px]">
-                <img src={step.img} alt={step.t} className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-50 transition-all duration-700 mix-blend-luminosity" />
-                <div className="absolute inset-0 bg-gradient-to-t from-obsidian/95 via-obsidian/70 to-transparent"></div>
+              <div key={i} className="group relative bg-white border border-black/5 rounded-[32px] overflow-hidden min-h-[300px]">
+                <img src={step.img} alt={step.t} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-white/80 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-8 w-full flex flex-col h-full justify-between">
-                  <div className="text-[#D4AF37] font-mono font-bold text-xl">{step.n}</div>
-                  <div>
-                    <h3 className="text-xl font-bold text-black mb-2 tracking-widest">{step.t}</h3>
-                    <p className="text-gray-300 text-sm font-medium leading-relaxed">{step.d}</p>
+                  <div className="text-[#D4AF37] font-mono font-bold text-xl drop-shadow-sm">{step.n}</div>
+                  <div className="mt-auto">
+                    <h3 className="text-xl font-bold text-black mb-2 tracking-widest drop-shadow-sm">{step.t}</h3>
+                    <p className="text-black text-sm font-semibold leading-relaxed drop-shadow-sm">{step.d}</p>
                   </div>
                 </div>
               </div>
@@ -339,33 +339,6 @@ export function PanelsPage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 10. Quality & Testing */}
-      <section className="py-24 bg-white border-t border-black/5">
-        <div className="max-w-[1024px] mx-auto px-4 md:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16">EVERY CONNECTION COUNTS.</h2>
-          
-          <div className="flex flex-col gap-2 max-w-lg mx-auto mb-12">
-            {[
-              "DESIGN REVIEW",
-              "ASSEMBLY INSPECTION",
-              "WIRING VERIFICATION",
-              "INSULATION / ELECTRICAL TESTS",
-              "FUNCTIONAL TESTING",
-              "PROTECTION & CONTROL VERIFICATION",
-              "FINAL INSPECTION",
-              "READY FOR DISPATCH"
-            ].map((test, i, arr) => (
-              <div key={i} className="flex flex-col items-center">
-                <div className="bg-[#f5f5f7] w-full py-4 px-6 rounded-xl border border-black/5 font-mono font-bold tracking-widest text-sm text-[#1d1d1f]">
-                  {test}
-                </div>
-                {i < arr.length - 1 && <ArrowDown className="w-5 h-5 text-gray-400 my-2" />}
-              </div>
-            ))}
           </div>
         </div>
       </section>

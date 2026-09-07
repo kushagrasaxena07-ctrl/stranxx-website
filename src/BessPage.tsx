@@ -210,22 +210,22 @@ export function BessPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             {/* Industrial */}
             <div className="group relative bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all h-[400px]">
-              <img src={indBessImg} alt="Industrial BESS" className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity" />
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/50 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-10 w-full">
-                <h3 className="text-3xl font-bold text-white mb-3">INDUSTRIAL</h3>
-                <p className="text-[#D4AF37] font-semibold mb-3 text-lg">Reduce peak demand. Improve power reliability. Optimise energy consumption.</p>
-                <p className="text-gray-300 text-sm">For manufacturing plants, process industries, warehouses and large commercial loads.</p>
+              <img src={indBessImg} alt="Industrial BESS" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/50 to-transparent pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 p-10 w-full pointer-events-none">
+                <h3 className="text-3xl font-bold text-white mb-3 drop-shadow-md">INDUSTRIAL</h3>
+                <p className="text-[#D4AF37] font-semibold mb-3 text-lg drop-shadow-md">Reduce peak demand. Improve power reliability. Optimise energy consumption.</p>
+                <p className="text-gray-100 text-sm font-medium drop-shadow-md">For manufacturing plants, process industries, warehouses and large commercial loads.</p>
               </div>
             </div>
             {/* Solar + BESS */}
             <div className="group relative bg-white rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all h-[400px]">
-              <img src={greenBessImg} alt="Solar BESS" className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:opacity-40 transition-opacity" />
-              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/50 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-10 w-full">
-                <h3 className="text-3xl font-bold text-white mb-3">SOLAR + BESS</h3>
-                <p className="text-[#D4AF37] font-semibold mb-3 text-lg">Store the sun. Dispatch when needed.</p>
-                <p className="text-gray-300 text-sm">Use stored solar energy beyond the generation window and support smoother renewable-energy delivery.</p>
+              <img src={greenBessImg} alt="Solar BESS" className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-obsidian/50 to-transparent pointer-events-none"></div>
+              <div className="absolute bottom-0 left-0 p-10 w-full pointer-events-none">
+                <h3 className="text-3xl font-bold text-white mb-3 drop-shadow-md">SOLAR + BESS</h3>
+                <p className="text-[#D4AF37] font-semibold mb-3 text-lg drop-shadow-md">Store the sun. Dispatch when needed.</p>
+                <p className="text-gray-100 text-sm font-medium drop-shadow-md">Use stored solar energy beyond the generation window and support smoother renewable-energy delivery.</p>
               </div>
             </div>
           </div>
@@ -318,57 +318,7 @@ export function BessPage() {
         </div>
       </section>
 
-      {/* 9. Intelligent EMS */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-          <div className="flex flex-col lg:flex-row gap-16">
-            <div className="lg:w-1/2">
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-6">
-                THE BATTERY STORES ENERGY.<br/>THE EMS DECIDES WHAT TO DO WITH IT.
-              </h2>
-              <p className="text-xl text-[#D4AF37] font-bold mb-10 tracking-widest uppercase">
-                Monitor. Predict. Optimise. Respond.
-              </p>
-              
-              <h3 className="text-xl font-bold mb-6 border-b border-black/10 pb-4">Operating Modes</h3>
-              <div className="space-y-6">
-                {[
-                  { t: "Peak Shaving", d: "Reduce demand during predefined peak periods." },
-                  { t: "Solar Shifting", d: "Store excess solar and use it later." },
-                  { t: "Backup Support", d: "Provide energy during defined grid events." },
-                  { t: "Load Management", d: "Coordinate battery operation with facility demand." },
-                  { t: "Grid Support", d: "Support specified grid functions where permitted." }
-                ].map((mode, i) => (
-                  <div key={i}>
-                    <h4 className="font-bold text-[#1d1d1f] mb-1">{mode.t}</h4>
-                    <p className="text-[#86868b] text-sm">{mode.d}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="lg:w-1/2">
-              <div className="bg-[#f5f5f7] rounded-[32px] p-8 border border-black/5 shadow-sm h-full">
-                <h3 className="font-bold text-lg mb-6 flex items-center gap-2">
-                  <Activity className="w-5 h-5 text-[#D4AF37]" /> Monitored Parameters
-                </h3>
-                <div className="grid grid-cols-2 gap-y-4 gap-x-8">
-                  {[
-                    "State of Charge (SOC)", "State of Health (SOH)", "Battery power",
-                    "Grid power", "Load demand", "Charge/discharge status",
-                    "Energy consumption", "Solar generation", "System alarms", "Operating conditions"
-                  ].map((param, i) => (
-                    <div key={i} className="flex items-center gap-2 border-b border-black/5 pb-3">
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#1d1d1f]"></div>
-                      <span className="text-sm font-medium text-[#86868b]">{param}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* 10. Performance Dashboard */}
       <section className="py-24 bg-[#f5f5f7] overflow-hidden">
@@ -474,40 +424,7 @@ export function BessPage() {
         </div>
       </section>
 
-      {/* 12. BESS Project Journey */}
-      <section className="py-24 bg-[#f5f5f7]">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-          <h2 className="text-3xl font-bold tracking-tight mb-16 text-center">The Project Journey</h2>
-          
-          <div className="relative">
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gray-300 -translate-y-1/2"></div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 relative z-10">
-              {[
-                { n: "01", t: "DISCOVER", d: "Understand your load, energy profile and objectives.", img: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070&auto=format&fit=crop" },
-                { n: "02", t: "ANALYSE", d: "Evaluate power demand, operating pattern and storage requirement.", img: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" },
-                { n: "03", t: "ENGINEER", d: "Develop the BESS architecture, sizing and electrical integration.", img: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=2070&auto=format&fit=crop" },
-                { n: "04", t: "INTEGRATE", d: "Coordinate battery, PCS, BMS, EMS, protection and site interfaces.", img: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=2070&auto=format&fit=crop" },
-                { n: "05", t: "COMMISSION", d: "Test system operation and verify configured operating modes.", img: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?q=80&w=2070&auto=format&fit=crop" },
-                { n: "06", t: "OPTIMISE", d: "Monitor performance and continuously improve energy utilisation.", img: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?q=80&w=2070&auto=format&fit=crop" }
-              ].map((step, i) => (
-                <div key={i} className="relative p-6 rounded-2xl border border-white/10 shadow-sm text-center overflow-hidden group min-h-[260px] flex flex-col justify-end bg-obsidian">
-                  <img src={step.img} alt={step.t} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-50 transition-opacity duration-500 z-0" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-obsidian/95 via-obsidian/70 to-obsidian/20 z-0"></div>
-                  
-                  <div className="relative z-10">
-                    <div className="w-10 h-10 bg-[#D4AF37] text-obsidian rounded-full flex items-center justify-center mx-auto mb-4 font-mono font-bold text-sm">
-                      {step.n}
-                    </div>
-                    <h4 className="font-bold text-sm tracking-widest uppercase mb-2 text-black">{step.t}</h4>
-                    <p className="text-xs text-gray-400 leading-relaxed font-medium">{step.d}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+
     </div>
   );
 }

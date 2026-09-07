@@ -41,10 +41,11 @@ export function Footer() {
                   MEERUT ROAD, GHAZIABAD. 201017
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#86868b] shrink-0" />
+              <li className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-[#86868b] shrink-0 mt-0.5" />
                 <span className="text-[#86868b] text-xs">
-                  +918287252775
+                  +918287252775<br/>
+                  +919220778377
                 </span>
               </li>
               <li className="flex items-center gap-3">

@@ -9,7 +9,7 @@ const systems = [
   {
     id: "Power Generation",
     name: "DG Sets",
-    desc: "High-capacity prime and standby power generation units built for continuous heavy-duty operation.",
+    desc: "High-capacity prime and standby power generation units built for continuous heavy-duty operation. Genset Make: Cummins, KOEL, Mahindra, Baudouin, TATA, Eicher.",
     image: dgImage,
     link: "/dg"
   },

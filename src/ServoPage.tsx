@@ -86,46 +86,6 @@ export function ServoPage() {
         </div>
       </section>
 
-      {/* 3. How a Servo Stabiliser Works */}
-      <section className="py-24 bg-obsidian text-white overflow-hidden relative">
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-16">
-            PRECISION CONTROL.<br/><span className="text-[#D4AF37]">IN REAL TIME.</span>
-          </h2>
-          
-          <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              { title: "UTILITY SUPPLY", desc: "Incoming fluctuating power from the grid." },
-              { title: "INPUT VOLTAGE SENSING", desc: "Continuous monitoring of incoming voltage." },
-              { title: "CONTROL SYSTEM", desc: "The controller determines the required correction." },
-              { title: "SERVO MOTOR", desc: "Precisely adjusts the regulating mechanism." },
-              { title: "BUCK/BOOST TRANSFORMER", desc: "Corrects the voltage according to the required operating range." },
-              { title: "STABLE OUTPUT", desc: "Controlled voltage supplied to the connected load." }
-            ].map((step, idx) => (
-              <div key={idx} className="relative">
-                <div className="bg-white/5 border border-white/10 rounded-2xl p-6 backdrop-blur-md relative z-10 hover:bg-white/10 transition-colors">
-                  <h3 className="text-lg font-bold tracking-widest text-[#D4AF37] mb-2">{step.title}</h3>
-                  <p className="text-gray-300 font-medium text-sm">{step.desc}</p>
-                </div>
-                {idx < 5 && (
-                  <div className="h-6 w-px bg-white/20 mx-auto my-2"></div>
-                )}
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-16 inline-flex flex-wrap items-center justify-center gap-3 font-mono font-bold text-sm tracking-widest text-black bg-white px-8 py-4 rounded-xl">
-            <span>INPUT</span>
-            <ArrowRight className="w-4 h-4 text-[#0066cc]" />
-            <span>SENSE</span>
-            <ArrowRight className="w-4 h-4 text-[#0066cc]" />
-            <span>CORRECT</span>
-            <ArrowRight className="w-4 h-4 text-[#0066cc]" />
-            <span>DELIVER</span>
-          </div>
-        </div>
-      </section>
-
       {/* 4. Why Servo Stabilisation? */}
       <section id="solutions" className="py-24 bg-[#f5f5f7]">
         <div className="max-w-[1280px] mx-auto px-4 md:px-8">
@@ -396,75 +356,6 @@ export function ServoPage() {
             <div className="bg-white text-black px-6 py-4 rounded-xl border border-black/5 shadow-sm font-bold">SERVO STABILISER</div>
             <ArrowRight className="w-5 h-5 text-[#0066cc] rotate-90 md:rotate-0" />
             <div className="bg-[#f5f5f7] px-6 py-4 rounded-xl border border-black/5 shadow-sm text-[#0066cc]">SENSITIVE LOAD</div>
-          </div>
-        </div>
-      </section>
-
-      {/* 12. Servo vs Conventional */}
-      <section className="py-24 bg-[#f5f5f7]">
-        <div className="max-w-[1024px] mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">WHY SERVO-CONTROLLED REGULATION?</h2>
-            <p className="text-xl text-[#0066cc] font-bold max-w-3xl mx-auto uppercase tracking-wide">
-              Don't compensate for unstable power after equipment fails.<br/>Regulate it before it reaches the load.
-            </p>
-          </div>
-          
-          <div className="bg-white rounded-[32px] shadow-sm border border-black/5 overflow-hidden">
-            <table className="w-full text-left border-collapse">
-              <thead>
-                <tr className="bg-white text-black border-b border-black/5">
-                  <th className="p-6 font-bold tracking-widest text-sm uppercase w-1/2">Feature</th>
-                  <th className="p-6 font-bold tracking-widest text-sm uppercase w-1/2 border-l border-black/5">Servo Stabiliser</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-black/5 text-[#1d1d1f] font-medium text-sm md:text-base">
-                {[
-                  { f: "Voltage sensing", s: "Continuous" },
-                  { f: "Correction", s: "Automatic" },
-                  { f: "Regulation mechanism", s: "Servo-controlled" },
-                  { f: "Application", s: "Industrial / Commercial" },
-                  { f: "Suitable loads", s: "Voltage-sensitive equipment" },
-                  { f: "Configuration", s: "Application-specific" },
-                  { f: "Monitoring", s: "Digital options available" },
-                  { f: "Protection", s: "Configurable" }
-                ].map((row, idx) => (
-                  <tr key={idx} className="hover:bg-[#f5f5f7] transition-colors">
-                    <td className="p-6 font-semibold">{row.f}</td>
-                    <td className="p-6 border-l border-black/5">{row.s}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* 13. Engineering Process */}
-      <section className="py-24 bg-obsidian text-white">
-        <div className="max-w-[1024px] mx-auto px-4 md:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">ENGINEERED BEFORE IT IS INSTALLED.</h2>
-          </div>
-          
-          <div className="space-y-6">
-            {[
-              { n: "01", t: "LOAD STUDY", d: "Understand connected load and operating characteristics." },
-              { n: "02", t: "VOLTAGE ANALYSIS", d: "Evaluate incoming voltage variation and required correction range." },
-              { n: "03", t: "CAPACITY SELECTION", d: "Determine appropriate kVA capacity and configuration." },
-              { n: "04", t: "PROTECTION DESIGN", d: "Define required protection and bypass arrangements." },
-              { n: "05", t: "PANEL & SYSTEM INTEGRATION", d: "Integrate stabiliser with the site's electrical architecture." },
-              { n: "06", t: "TESTING", d: "Verify regulation, protection and functional operation." },
-              { n: "07", t: "COMMISSIONING", d: "Site installation, testing and operational handover." }
-            ].map((step, idx) => (
-              <div key={idx} className="flex flex-col md:flex-row gap-4 md:gap-8 bg-white/5 border border-white/10 p-6 md:p-8 rounded-[24px] items-start md:items-center">
-                <div className="text-[#D4AF37] font-mono font-bold text-2xl shrink-0">{step.n} —</div>
-                <div>
-                  <h3 className="text-xl font-bold tracking-widest mb-2">{step.t}</h3>
-                  <p className="text-gray-400 font-medium">{step.d}</p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
