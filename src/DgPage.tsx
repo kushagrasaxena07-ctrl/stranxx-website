@@ -285,7 +285,7 @@ export function DgPage() {
             {/* Dashboard Mock */}
             <div className="bg-obsidian rounded-[32px] p-8 md:p-10 shadow-2xl border border-black/10">
               <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-6">
-                <h3 className="text-black font-bold tracking-widest">STRANXX DIGITAL CONTROLLER</h3>
+                <h3 className="text-black font-bold tracking-widest">PLC CONTROLLER</h3>
                 <div className="flex gap-2">
                   <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
                   <span className="text-xs text-black font-mono">STANDBY MODE</span>
