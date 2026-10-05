@@ -2,8 +2,54 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Zap, Shield, Target, Factory, TrendingUp, Settings2, Server, Building2, Monitor, Activity, Database, HeartPulse, Sliders, CheckCircle2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from './components/SEO';
 
 import servoHeroImg from './assets/images/regenerated_image_1787555922847.png';
+
+const servoSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "STRANXX Servo Voltage Stabilizers",
+      "description": "High-precision servo-controlled voltage stabilization systems engineered to regulate supply variations and deliver controlled voltage to critical industrial and commercial loads.",
+      "brand": {
+        "@type": "Brand",
+        "name": "STRANXX"
+      },
+      "category": "Voltage Regulators",
+      "url": "https://stranxx.com/servo",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stranxx.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://stranxx.com/products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Servo Voltage Stabilizers",
+          "item": "https://stranxx.com/servo"
+        }
+      ]
+    }
+  ]
+};
 
 export function ServoPage() {
   useEffect(() => {
@@ -12,10 +58,16 @@ export function ServoPage() {
 
   return (
     <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans">
+      <SEO
+        title="Servo Voltage Stabilizer Manufacturer in India | STRANXX LLP"
+        description="STRANXX is a leading servo voltage stabilizer manufacturer in India, engineering high-precision balanced, unbalanced, and linear rolling contact systems for industrial loads."
+        canonicalPath="/servo"
+        schema={servoSchema}
+      />
       {/* 1. Hero Section */}
       <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden bg-obsidian text-white min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <img src={servoHeroImg} alt="STRANXX Servo Stabilisers" className="w-full h-full object-cover opacity-30" />
+          <img src={servoHeroImg} alt="STRANXX Servo Voltage Stabilisers Unit" className="w-full h-full object-cover opacity-30" />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/80 to-transparent"></div>
         </div>
         

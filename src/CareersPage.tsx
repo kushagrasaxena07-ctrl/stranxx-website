@@ -1,6 +1,37 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { CheckCircle2, Mail, Briefcase } from 'lucide-react';
+import { SEO } from './components/SEO';
+
+const careersSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://stranxx.com/careers",
+      "url": "https://stranxx.com/careers",
+      "name": "Careers at STRANXX LLP",
+      "description": "Build the future of industrial power generation, electrical panels, and energy storage systems at STRANXX LLP."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stranxx.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Careers",
+          "item": "https://stranxx.com/careers"
+        }
+      ]
+    }
+  ]
+};
 
 export function CareersPage() {
   useEffect(() => {
@@ -78,6 +109,12 @@ export function CareersPage() {
 
   return (
     <div className="pt-24 pb-32 min-h-screen bg-[#f5f5f7]">
+      <SEO
+        title="Careers at STRANXX LLP | Power Systems Engineering & Sales"
+        description="Join the STRANXX LLP team. Build the future of industrial power infrastructure, electrical panels, servo voltage stabilizers, and energy storage systems."
+        canonicalPath="/careers"
+        schema={careersSchema}
+      />
       <div className="max-w-[800px] mx-auto px-4 md:px-8 pt-12 pb-16">
         <div className="text-center mb-16">
           <motion.p 

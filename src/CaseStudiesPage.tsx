@@ -2,10 +2,41 @@ import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Activity, Zap, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from './components/SEO';
 
 import syncPanelImg from './assets/images/slider_image_3.png';
 import greenFacilityImg from './assets/images/green_energy_facility_1787499887143.jpg';
 import dgComplianceImg from './assets/images/regenerated_image_1788681590200.png';
+
+const caseStudiesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://stranxx.com/case-studies",
+      "url": "https://stranxx.com/case-studies",
+      "name": "STRANXX Project Case Studies & Deployments",
+      "description": "Discover proven STRANXX deployments: high-capacity synchronization panels, hybrid solar + BESS microgrids, and CPCB-IV+ compliant data center DG setups."
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stranxx.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Case Studies",
+          "item": "https://stranxx.com/case-studies"
+        }
+      ]
+    }
+  ]
+};
 
 const caseStudies = [
   {
@@ -13,6 +44,7 @@ const caseStudies = [
     title: "High-Capacity Synchronisation Panel for Industrial Manufacturing",
     category: "Electrical Panels & Automation",
     image: syncPanelImg,
+    alt: "STRANXX Industrial Synchronization Panel Case Study",
     challenge: "A leading heavy manufacturing plant experienced frequent grid fluctuations leading to costly production halts. They required a robust synchronisation system to manage multiple power sources seamlessly.",
     solution: "Stranxx engineered and deployed a state-of-the-art Synchronisation Panel featuring automated load sharing and advanced PLC controls. The system intelligently balances the load between grid and backup generators in real-time.",
     impact: [
@@ -26,6 +58,7 @@ const caseStudies = [
     title: "Hybrid Solar & BESS Integration for Remote Facility",
     category: "Solar & Energy Storage",
     image: greenFacilityImg,
+    alt: "STRANXX Hybrid Solar and BESS Energy Storage Installation",
     challenge: "An off-grid remote research facility relied heavily on expensive, high-emission diesel generators for 24/7 power, seeking a sustainable and cost-effective transition.",
     solution: "We designed a hybrid microgrid combining a 500kW Solar PV array with an advanced Battery Energy Storage System (BESS). The system captures excess daytime solar energy to power nighttime operations, with existing DG sets relegated to rare emergency backup.",
     impact: [
@@ -39,6 +72,7 @@ const caseStudies = [
     title: "CPCB-IV+ Compliant DG Setup for Data Center",
     category: "Backup Power Generation",
     image: dgComplianceImg,
+    alt: "STRANXX CPCB-IV+ Compliant Diesel Generator Data Center Project",
     challenge: "A tier-3 data center required uncompromised backup power reliability while strictly adhering to the latest environmental emission regulations (CPCB-IV+) in a highly urbanised zone.",
     solution: "Stranxx supplied and commissioned a multi-megawatt configuration of CPCB-IV+ compliant Diesel Generators. The setup included specialised acoustic enclosures for ultra-low noise and advanced after-treatment systems for minimal emissions.",
     impact: [
@@ -56,6 +90,12 @@ export function CaseStudiesPage() {
 
   return (
     <div className="pt-24 pb-32 min-h-screen bg-[#f5f5f7] text-[#1d1d1f]">
+      <SEO
+        title="Case Studies & Industrial Deployments | STRANXX LLP"
+        description="Discover proven STRANXX deployments: high-capacity synchronization panels, hybrid solar + BESS microgrids, and CPCB-IV+ compliant data center DG setups."
+        canonicalPath="/case-studies"
+        schema={caseStudiesSchema}
+      />
       {/* Header Section */}
       <div className="max-w-[1024px] mx-auto px-4 md:px-8 pt-12 pb-16 text-center">
         <motion.p 

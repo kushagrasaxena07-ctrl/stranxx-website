@@ -140,7 +140,7 @@ export function EnergyStorage() {
             </div>
             
             <div className="w-full md:w-1/2 relative min-h-[400px]">
-              <img src={product.image} alt={product.title} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700" />
+              <img src={product.image} alt={`STRANXX ${product.title} - ${product.tagline}`} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-all duration-700" />
               <div className={`absolute inset-0 bg-gradient-to-${isEven ? 'r' : 'l'} from-white via-transparent to-transparent hidden md:block`}></div>
               <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent md:hidden"></div>
             </div>

@@ -2,9 +2,55 @@ import React, { useEffect } from 'react';
 import { motion } from 'motion/react';
 import { Settings, ShieldCheck, Activity, Database, CheckCircle2, Factory, Building2, Zap, ArrowRight, ArrowDown, Monitor, Cpu, Server, Lock, Lightbulb, Combine } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from './components/SEO';
 
 import panelHeroImg from './assets/images/regenerated_image_1788631419935.png';
 import panelManufacturingImg from './assets/images/regenerated_image_1788690081546.png';
+
+const panelsSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "STRANXX Custom Electrical Panels",
+      "description": "Custom-engineered electrical panels designed for reliable power distribution, intelligent monitoring and dependable protection across industrial and commercial applications (LT, APFC, AMF, Synchronising Panels).",
+      "brand": {
+        "@type": "Brand",
+        "name": "STRANXX"
+      },
+      "category": "Electrical Switchgear & Power Distribution",
+      "url": "https://stranxx.com/panels",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stranxx.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://stranxx.com/products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Electrical Panels",
+          "item": "https://stranxx.com/panels"
+        }
+      ]
+    }
+  ]
+};
 
 export function PanelsPage() {
   useEffect(() => {
@@ -13,10 +59,16 @@ export function PanelsPage() {
 
   return (
     <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans">
+      <SEO
+        title="Electrical Panel Manufacturer in India | LT, APFC, AMF & Synchronising Panels"
+        description="Leading electrical panel manufacturer in India. STRANXX custom-engineers LT panels, APFC panels, AMF panels, and synchronising panels for industrial automation & power distribution."
+        canonicalPath="/panels"
+        schema={panelsSchema}
+      />
       {/* 1. Hero Section */}
       <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden bg-obsidian text-white min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <img src={panelHeroImg} alt="STRANXX Electrical Panels" className="w-full h-full object-cover opacity-40" />
+          <img src={panelHeroImg} alt="STRANXX Industrial Electrical Control and Distribution Panels" className="w-full h-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/80 to-transparent"></div>
         </div>
         

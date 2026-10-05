@@ -2,12 +2,56 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, ChevronRight, CheckCircle2 } from 'lucide-react';
 import { SupportModal } from './components/SupportModal';
+import { SEO } from './components/SEO';
 
 import heroImg from './assets/images/stranxx_green_future_1787500743386.jpg';
 import panelImg from './assets/images/regenerated_image_1788631419935.png';
 import solarImg from './assets/images/stranxx_bess_solar_1787500686947.jpg';
 import dgSetsImg from './assets/images/regenerated_image_1788631709482.png';
 import servoImg from './assets/images/regenerated_image_1788693196928.png';
+
+const aboutSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://stranxx.com/about-us",
+      "url": "https://stranxx.com/about-us",
+      "name": "About STRANXX LLP",
+      "description": "STRANXX delivers engineered power and energy solutions designed around performance, precision and long-term reliability.",
+      "mainEntity": {
+        "@type": "Organization",
+        "name": "STRANXX LLP",
+        "url": "https://stranxx.com/",
+        "logo": "https://stranxx.com/assets/images/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Plot No. 45, Industrial Area Guldhar 2, Meerut Road",
+          "addressLocality": "Ghaziabad",
+          "postalCode": "201017",
+          "addressCountry": "IN"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stranxx.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "About Us",
+          "item": "https://stranxx.com/about-us"
+        }
+      ]
+    }
+  ]
+};
 
 const premiumPoints = [
   {
@@ -57,6 +101,12 @@ export function AboutUsPage() {
 
   return (
     <div className="pt-24 pb-32 min-h-screen bg-obsidian text-[#1d1d1f]">
+      <SEO
+        title="About Us | STRANXX LLP - Engineering Power Reliability"
+        description="Learn about STRANXX LLP, our ISO 9001:2015 certified engineering approach, core ethos, and comprehensive power infrastructure solutions."
+        canonicalPath="/about-us"
+        schema={aboutSchema}
+      />
       <div className="max-w-[1024px] mx-auto px-4 md:px-8">
         
         {/* Header Section */}
@@ -94,7 +144,7 @@ export function AboutUsPage() {
             {/* DG Sets - Large span */}
             <div className="md:col-span-2 rounded-[32px] overflow-hidden h-[320px] shadow-lg relative group">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition-all duration-700 z-10"></div>
-              <img src={dgSetsImg} alt="DG Sets" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+              <img src={dgSetsImg} alt="STRANXX CPCB-IV+ Compliant Diesel Generators DG Sets" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute bottom-0 left-0 p-8 z-20">
                 <h3 className="text-white text-2xl font-bold mb-1">Diesel Generators</h3>
                 <p className="text-white/80 font-medium text-sm tracking-wide">CPCB-IV+ COMPLIANT POWER</p>
@@ -104,7 +154,7 @@ export function AboutUsPage() {
             {/* LT Panels */}
             <div className="md:col-span-1 rounded-[32px] overflow-hidden h-[320px] shadow-lg relative group">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition-all duration-700 z-10"></div>
-              <img src={panelImg} alt="LT Panels" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+              <img src={panelImg} alt="STRANXX Custom Engineered LT Electrical Distribution Panels" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute bottom-0 left-0 p-8 z-20">
                 <h3 className="text-white text-2xl font-bold mb-1">LT Panels</h3>
                 <p className="text-white/80 font-medium text-sm tracking-wide">PRECISION ENGINEERING</p>
@@ -114,7 +164,7 @@ export function AboutUsPage() {
             {/* Servo Stabilisers */}
             <div className="md:col-span-1 rounded-[32px] overflow-hidden h-[320px] shadow-lg relative group">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition-all duration-700 z-10"></div>
-              <img src={servoImg} alt="Servo Stabilisers" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+              <img src={servoImg} alt="STRANXX High Precision Servo Controlled Voltage Stabilisers" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute bottom-0 left-0 p-8 z-20">
                 <h3 className="text-white text-2xl font-bold mb-1">Servo Stabilisers</h3>
                 <p className="text-white/80 font-medium text-sm tracking-wide">VOLTAGE RELIABILITY</p>
@@ -124,7 +174,7 @@ export function AboutUsPage() {
             {/* BESS & Solar */}
             <div className="md:col-span-2 rounded-[32px] overflow-hidden h-[320px] shadow-lg relative group">
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:from-black/60 transition-all duration-700 z-10"></div>
-              <img src={solarImg} alt="BESS & Solar" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+              <img src={solarImg} alt="STRANXX Battery Energy Storage Systems BESS and Solar Microgrids" className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute bottom-0 left-0 p-8 z-20">
                 <h3 className="text-white text-2xl font-bold mb-1">BESS & Solar Systems</h3>
                 <p className="text-white/80 font-medium text-sm tracking-wide">FUTURE-READY ENERGY</p>

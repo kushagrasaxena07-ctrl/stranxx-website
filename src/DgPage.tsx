@@ -1,8 +1,54 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Settings, ShieldCheck, Activity, Database, CheckCircle2, Factory, Building2, Zap, ArrowRight, ArrowDown } from 'lucide-react';
+import { SEO } from './components/SEO';
 
 import dgHeroImg from './assets/images/regenerated_image_1787557488489.png';
+
+const dgSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "STRANXX Diesel & Gas Generator Sets (DG Sets)",
+      "description": "High-performance DG solutions engineered for dependable prime, standby and critical-power applications (10 kVA - 2000 kVA). CPCB-IV+ compliant with makes: Cummins, KOEL, Mahindra, Baudouin, TATA, and Eicher.",
+      "brand": {
+        "@type": "Brand",
+        "name": "STRANXX"
+      },
+      "category": "Power Generators",
+      "url": "https://stranxx.com/dg",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stranxx.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://stranxx.com/products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "DG Sets",
+          "item": "https://stranxx.com/dg"
+        }
+      ]
+    }
+  ]
+};
 
 export function DgPage() {
   const [connectedLoad, setConnectedLoad] = useState('');
@@ -54,10 +100,16 @@ export function DgPage() {
 
   return (
     <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans">
+      <SEO
+        title="CPCB-IV+ DG Sets & Industrial Diesel Generators | STRANXX LLP"
+        description="Heavy-duty CPCB-IV+ DG sets and diesel generator solutions (10 kVA - 2000 kVA) powered by Cummins, KOEL, Mahindra, Baudouin, TATA, and Eicher engines."
+        canonicalPath="/dg"
+        schema={dgSchema}
+      />
       {/* 1. Hero Section */}
       <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden bg-obsidian text-white min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <img src={dgHeroImg} alt="STRANXX DG Sets" className="w-full h-full object-cover opacity-40" />
+          <img src={dgHeroImg} alt="STRANXX Heavy Duty Diesel Generator DG Sets" className="w-full h-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/80 to-transparent"></div>
         </div>
         

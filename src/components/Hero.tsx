@@ -4,9 +4,9 @@ import slide2 from "../assets/images/slider_image_3.png";
 import slide3 from "../assets/images/hero_slider_3.png";
 
 const slides = [
-  { id: 1, src: slide1, alt: "BESS and Solar Integration" },
-  { id: 2, src: slide2, alt: "Green Future Technology" },
-  { id: 3, src: slide3, alt: "Green Energy Facility" },
+  { id: 1, src: slide1, alt: "STRANXX Battery Energy Storage Systems (BESS) and Solar Integration" },
+  { id: 2, src: slide2, alt: "STRANXX Industrial Power Engineering and Electrical Automation" },
+  { id: 3, src: slide3, alt: "STRANXX Clean Energy Facility & Heavy-Duty Power Infrastructure" },
 ];
 
 export function Hero() {

@@ -70,7 +70,7 @@ export function EngineeredSystems() {
             <div className="relative flex-1 min-h-[360px] md:min-h-[460px] w-full mt-2">
               <img 
                 src={system.image} 
-                alt={system.name} 
+                alt={`STRANXX ${system.name} - ${system.id}`} 
                 className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent"></div>

@@ -2,12 +2,58 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Battery, Cpu, Activity, Shield, Zap, Sun, Server, Settings, CheckCircle2, Factory, Network, Building2, ChevronRight, BarChart3, LineChart, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from './components/SEO';
 import bessHeroImg from './assets/images/regenerated_image_1787557190781.png';
 import indBessImg from './assets/images/stranxx_bess_solar_1787500686947.jpg';
 import greenBessImg from './assets/images/green_energy_facility_1787499887143.jpg';
 import bessDetail1 from './assets/images/regenerated_image_1788522284990.png';
 import bessDetail2 from './assets/images/servo_bess_system_1787500435229.jpg';
 import bessDetail3 from './assets/images/regenerated_image_1788685883962.png';
+
+const bessSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "name": "STRANXX Battery Energy Storage Systems (BESS) & Solar + BESS",
+      "description": "Intelligent C&I, Utility-Scale, and Solar + BESS battery storage solutions for peak shaving, renewable integration, microgrid resilience, and continuous power reliability.",
+      "brand": {
+        "@type": "Brand",
+        "name": "STRANXX"
+      },
+      "category": "Battery Energy Storage Systems",
+      "url": "https://stranxx.com/bess",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://stranxx.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "https://stranxx.com/products"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Battery Energy Storage Systems (BESS)",
+          "item": "https://stranxx.com/bess"
+        }
+      ]
+    }
+  ]
+};
 
 export function BessPage() {
   useEffect(() => {
@@ -16,10 +62,16 @@ export function BessPage() {
 
   return (
     <div className="min-h-screen bg-[#f5f5f7] text-[#1d1d1f] font-sans">
+      <SEO
+        title="BESS Manufacturer & Solar + BESS Energy Storage Systems | STRANXX LLP"
+        description="STRANXX is an advanced BESS manufacturer offering utility, industrial, and Solar + BESS solutions for peak shaving, renewable integration, and microgrid resilience."
+        canonicalPath="/bess"
+        schema={bessSchema}
+      />
       {/* 1. Hero Section */}
       <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden bg-obsidian text-white min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0">
-          <img src={bessHeroImg} alt="STRANXX BESS" className="w-full h-full object-cover opacity-40" />
+          <img src={bessHeroImg} alt="STRANXX Battery Energy Storage Systems BESS Unit" className="w-full h-full object-cover opacity-40" />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian via-obsidian/80 to-transparent"></div>
         </div>
         
