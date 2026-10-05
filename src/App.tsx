@@ -15,25 +15,36 @@ import { BessPage } from "./BessPage";
 import { DgPage } from "./DgPage";
 import { PanelsPage } from "./PanelsPage";
 import { ServoPage } from "./ServoPage";
+import { SitemapView } from "./SitemapView";
+import { RobotsView } from "./RobotsView";
 
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-obsidian">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<AboutUsPage />} />
-          <Route path="/products" element={<ProductsPage />} />
-          <Route path="/case-studies" element={<CaseStudiesPage />} />
-          <Route path="/careers" element={<CareersPage />} />
-          <Route path="/bess" element={<BessPage />} />
-          <Route path="/dg" element={<DgPage />} />
-          <Route path="/panels" element={<PanelsPage />} />
-          <Route path="/servo" element={<ServoPage />} />
-        </Routes>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/sitemap.xml" element={<SitemapView />} />
+        <Route path="/robots.txt" element={<RobotsView />} />
+        <Route
+          path="*"
+          element={
+            <div className="min-h-screen bg-obsidian">
+              <Navbar />
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about-us" element={<AboutUsPage />} />
+                <Route path="/products" element={<ProductsPage />} />
+                <Route path="/case-studies" element={<CaseStudiesPage />} />
+                <Route path="/careers" element={<CareersPage />} />
+                <Route path="/bess" element={<BessPage />} />
+                <Route path="/dg" element={<DgPage />} />
+                <Route path="/panels" element={<PanelsPage />} />
+                <Route path="/servo" element={<ServoPage />} />
+              </Routes>
+              <Footer />
+            </div>
+          }
+        />
+      </Routes>
     </Router>
   );
 }
