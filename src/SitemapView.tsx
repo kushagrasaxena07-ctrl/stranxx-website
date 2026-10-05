@@ -83,7 +83,10 @@ const SITEMAP_XML = `<?xml version="1.0" encoding="UTF-8"?>
 
 export function SitemapView() {
   useEffect(() => {
-    document.title = "sitemap.xml - STRANXX LLP";
+    // Force native browser fetch of server XML if client-side SPA router intercepted it
+    if (window.location.pathname === '/sitemap.xml') {
+      window.location.replace('/sitemap.xml');
+    }
   }, []);
 
   return (

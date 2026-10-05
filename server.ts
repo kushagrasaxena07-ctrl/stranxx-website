@@ -95,42 +95,43 @@ Sitemap: https://stranxx.com/sitemap.xml
 
 async function startServer() {
   const app = express();
-  const PORT = parseInt(process.env.PORT || '3000', 10);
-  const isProduction = process.env.NODE_ENV === 'production' || fs.existsSync(path.resolve(__dirname, 'dist'));
+  const isProduction = process.env.NODE_ENV === 'production';
 
   // Ensure sitemap.xml and robots.txt are served with correct Content-Type and HTTP 200 BEFORE any SPA routing
-  app.get(['/sitemap.xml', '/sitemap'], (_req, res) => {
+  app.all(['/sitemap.xml', '/sitemap'], (_req, res) => {
     res.setHeader('Content-Type', 'application/xml; charset=utf-8');
     res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Cache-Control', 'public, max-age=3600');
     res.status(200);
 
-    const publicPath = path.resolve(__dirname, 'public/sitemap.xml');
     const distPath = path.resolve(__dirname, 'dist/sitemap.xml');
+    const publicPath = path.resolve(__dirname, 'public/sitemap.xml');
 
-    if (fs.existsSync(publicPath)) {
-      return res.sendFile(publicPath);
-    }
     if (fs.existsSync(distPath)) {
       return res.sendFile(distPath);
     }
-    return res.send(SITEMAP_XML);
+    if (fs.existsSync(publicPath)) {
+      return res.sendFile(publicPath);
+    }
+    return res.type('application/xml').send(SITEMAP_XML);
   });
 
-  app.get('/robots.txt', (_req, res) => {
+  app.all(['/robots.txt', '/robots'], (_req, res) => {
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
     res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Cache-Control', 'public, max-age=3600');
     res.status(200);
 
-    const publicPath = path.resolve(__dirname, 'public/robots.txt');
     const distPath = path.resolve(__dirname, 'dist/robots.txt');
+    const publicPath = path.resolve(__dirname, 'public/robots.txt');
 
-    if (fs.existsSync(publicPath)) {
-      return res.sendFile(publicPath);
-    }
     if (fs.existsSync(distPath)) {
       return res.sendFile(distPath);
     }
-    return res.send(ROBOTS_TXT);
+    if (fs.existsSync(publicPath)) {
+      return res.sendFile(publicPath);
+    }
+    return res.type('text/plain').send(ROBOTS_TXT);
   });
 
   if (!isProduction) {
@@ -150,9 +151,28 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server listening on http://0.0.0.0:${PORT}`);
-  });
+  // Support Cloud Run PORT env var (e.g. 8080) and AI Studio container (port 3000)
+  const portArgIndex = process.argv.indexOf('--port');
+  const portArg = portArgIndex !== -1 ? process.argv[portArgIndex + 1] : undefined;
+  const initialPort = parseInt(portArg || process.env.APP_PORT || process.env.PORT || '3000', 10);
+
+  function startListening(port: number) {
+    const server = app.listen(port, '0.0.0.0', () => {
+      console.log(`Server listening on http://0.0.0.0:${port}`);
+    });
+
+    server.on('error', (err: any) => {
+      if (err.code === 'EADDRINUSE' && port !== 3000) {
+        console.warn(`Port ${port} in use, falling back to port 3000...`);
+        startListening(3000);
+      } else {
+        console.error('Server error:', err);
+        process.exit(1);
+      }
+    });
+  }
+
+  startListening(initialPort);
 }
 
 startServer().catch((err) => {

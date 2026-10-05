@@ -8,7 +8,10 @@ Sitemap: https://stranxx.com/sitemap.xml
 
 export function RobotsView() {
   useEffect(() => {
-    document.title = "robots.txt - STRANXX LLP";
+    // Force native browser fetch of server robots.txt if client-side SPA router intercepted it
+    if (window.location.pathname === '/robots.txt') {
+      window.location.replace('/robots.txt');
+    }
   }, []);
 
   return (
